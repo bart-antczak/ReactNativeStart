@@ -3,6 +3,7 @@ import { StyleSheet, View } from "react-native";
 
 import PlaceInput from "./src/components/PlaceInput/PlaceInput";
 import PlaceList from "./src/components/PlaceList/PlaceList";
+import placeImage from './src/assets/img/beautiful-place.jpg';
 
 export default class App extends Component {
   state = {
@@ -12,18 +13,22 @@ export default class App extends Component {
   placeAddedHandler = placeName => {
     this.setState(prevState => {
       return {
-        places: prevState.places.concat(placeName)
+        places: prevState.places.concat({
+          key: Math.random(),
+          name: placeName,
+          image: placeImage
+        })
       };
     });
   };
 
-  onItemDeleteHandler = index => {
+  placeDeletedHandler = key => {
     this.setState(prevState => {
-        return {
-            places: prevState.places.filter((place, i) => {
-               return i !== index;
-            })
-        };
+      return {
+        places: prevState.places.filter(place => {
+          return place.key !== key;
+        })
+      };
     });
   };
 
@@ -32,8 +37,9 @@ export default class App extends Component {
       <View style={styles.container}>
         <PlaceInput onPlaceAdded={this.placeAddedHandler} />
         <PlaceList
-            onItemDeleted={this.onItemDeleteHandler}
-            places={this.state.places} />
+          places={this.state.places}
+          onItemDeleted={this.placeDeletedHandler}
+        />
       </View>
     );
   }
