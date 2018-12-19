@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 import AuthScreen from './src/screens/Auth/Auth';
 import ShareScreen from './src/screens/SharePlace/SharePlace';
 import FindScreen from './src/screens/FindPlace/FindPlace';
+import PlaceDetail from './src/screens/PlaceDetail/PlaceDetail';
 import configureStore from './src/store/configureStore';
 
 const store = configureStore();
@@ -13,6 +14,7 @@ const store = configureStore();
 Navigation.registerComponentWithRedux('ReactNativeStart.AuthScreen', () => AuthScreen, Provider, store);
 Navigation.registerComponentWithRedux('ReactNativeStart.ShareScreen', () => ShareScreen, Provider, store);
 Navigation.registerComponentWithRedux('ReactNativeStart.FindScreen', () => FindScreen, Provider, store);
+Navigation.registerComponent('ReactNativeStart.PlaceDetail', () => PlaceDetail);
 
 // Start a App
 Navigation.setRoot({
