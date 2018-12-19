@@ -1,0 +1,11 @@
+--- adb starting (pid 3781) ---
+adb I 12-19 15:34:34  3781  3781 main.cpp:56] Android Debug Bridge version 1.0.40
+adb I 12-19 15:34:34  3781  3781 main.cpp:56] Version 4986621
+adb I 12-19 15:34:34  3781  3781 main.cpp:56] Installed as /root/Android/Sdk/platform-tools/adb
+adb I 12-19 15:34:34  3781  3781 main.cpp:56] 
+adb I 12-19 15:34:34  3781  3781 auth.cpp:421] adb_auth_init...
+adb I 12-19 15:34:34  3781  3781 auth.cpp:174] read_key_file '/root/.android/adbkey'...
+adb I 12-19 15:34:34  3781  3781 auth.cpp:396] adb_auth_inotify_init...
+adb I 12-19 15:34:34  3781  3788 transport.cpp:281] emulator-5554: read thread spawning
+adb I 12-19 15:34:34  3781  3789 transport.cpp:294] emulator-5554: write thread spawning
+adb I 12-19 15:34:34  3781  3781 adb.cpp:141] emulator-5554: already offline
