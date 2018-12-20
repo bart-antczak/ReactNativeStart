@@ -6,6 +6,7 @@ import ShareScreen from './src/screens/SharePlace/SharePlace';
 import FindScreen from './src/screens/FindPlace/FindPlace';
 import PlaceDetail from './src/screens/PlaceDetail/PlaceDetail';
 import configureStore from './src/store/configureStore';
+import SideDrawer from "./src/screens/SideDrawer/SideDrawer";
 
 const store = configureStore();
 
@@ -14,24 +15,44 @@ const store = configureStore();
 Navigation.registerComponentWithRedux('ReactNativeStart.AuthScreen', () => AuthScreen, Provider, store);
 Navigation.registerComponentWithRedux('ReactNativeStart.ShareScreen', () => ShareScreen, Provider, store);
 Navigation.registerComponentWithRedux('ReactNativeStart.FindScreen', () => FindScreen, Provider, store);
-Navigation.registerComponent('ReactNativeStart.PlaceDetail', () => PlaceDetail);
+Navigation.registerComponentWithRedux('ReactNativeStart.PlaceDetail', () => PlaceDetail, Provider, store);
+Navigation.registerComponent('ReactNativeStart.SideDrawer', () => SideDrawer);
 
 // Start a App
 Navigation.setRoot({
   root: {
-    stack: {
-      children: [{
-        component: {
-          name: 'ReactNativeStart.AuthScreen'
+    sideMenu: {
+      left: {
+        stack: {
+          id: 'SideMenu',
+          children: [
+            {
+              component: {
+                name: 'ReactNativeStart.SideDrawer',
+                passProps: {
+                  side: 'left'
+                }
+              }
+            }
+          ]
         }
-      }],
-      options: {
-        topBar: {
-          title: {
-            text: 'Login'
+      },
+      center: {
+        stack: {
+          children: [{
+            component: {
+              name: 'ReactNativeStart.AuthScreen'
+            }
+          }],
+          options: {
+            topBar: {
+              title: {
+                text: 'Login'
+              }
+            }
           }
         }
       }
-    }
+    },
   }
 });

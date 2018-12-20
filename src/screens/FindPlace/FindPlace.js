@@ -3,7 +3,7 @@ import { View, Text } from 'react-native';
 import { connect } from 'react-redux';
 
 import PlaceList from '../../components/PlaceList/PlaceList';
-import {Navigation} from "react-native-navigation";
+import { Navigation } from "react-native-navigation";
 
 class FindPlaceScreen extends Component {
 
